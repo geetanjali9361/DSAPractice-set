@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+class BaseClass{
+    public:
+    virtual void function(int l,int b){
+        cout<<"the area of the rectangle: "<<l*b;
+    }
+};
+
+class DerivedClass : public BaseClass{
+    public: 
+    virtual void function(int l,int b) override {
+        cout<<"the perimeter of the rectangle "<<2*(l+b);
+    }
+};
+
+int main(){
+    int l,b;
+    cin>>l>>b;
+    BaseClass* ptr;
+    DerivedClass ob;
+    ptr= &ob;
+    ptr->function(l,b);
+    return 0;
+}

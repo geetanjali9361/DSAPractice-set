@@ -1,0 +1,39 @@
+3436-
+# Write your MySQL query statement below
+SELECT user_id, email
+FROM Users
+WHERE email REGEXP '^[A-Za-z0-9_]+@[A-Za-z]+\\.com$'
+ORDER BY user_id;
+
+
+620-
+# Write your MySQL query statement below
+SELECT id, movie, description, rating
+FROM Cinema
+WHERE id%2!=0 AND description != "boring"
+ORDER BY rating DESC;
+
+
+577-
+# Write your MySQL query statement below
+SELECT e.name, b.bonus
+FROM Employee e
+LEFT JOIN Bonus b ON
+e.empId = b.empId
+WHERE b.bonus<1000 || b.bonus IS NULL;
+
+
+182-
+# Write your MySQL query statement below
+SELECT email AS Email
+FROM Person
+GROUP BY email
+HAVING COUNT(email)>1;
+
+
+175-
+# Write your MySQL query statement below
+SELECT p.firstName, p.lastName, a.city, a.state
+FROM Person p
+LEFT JOIN Address a ON
+p.personId = a.personId;
