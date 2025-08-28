@@ -1,27 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int main(){
-    int arr[5]={4,66,22,96,2};
-    int n=5;
-    int s=100;
-    int it=0;
-    int index;
-    //appling selection sort
-    for(int j=0;j<n-1;j++){
-        for(int i=it; i<n; i++){
-        //find the minimum
-        if(arr[i]<s){
-            s=arr[i];
-            index=i;
+class Solution {
+public:
+    vector<int> selectionSort(vector<int>& nums) {
+        int n=nums.size();
+        for(int i=0; i<n-1; i++){
+            int min=i;
+            for(int j=i ;j<=n-1 ;j++){
+                if(nums[j]<nums[min]){
+                    min=j;
+                }
+            }
+            if(min!=i){
+                swap(nums[i],nums[min]);
+            }
         }
+        return nums;
     }
-    s=100;
-    swap(arr[index],arr[it]);
-    it++;
-    }
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<'\n';
+};
+
+int main(){
+    vector<int>nums = {12,5,66,22,6};
+    Solution sol;
+    vector<int>result = sol.selectionSort(nums);
+
+    cout << "Sorted array: ";
+    for(int i=0;i<result.size();i++){
+        cout<<result[i]<<'\n';
     }
     return 0;
 }
